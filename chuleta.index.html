@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunes de Lechita - Tu Início Fresco y Nutritivo</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --milk-blue: #0d6efd;
+            --milk-sky: #e7f1ff;
+            --milk-cream: #f8f9fa;
+            --milk-dark: #1b2a4a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background-color: var(--milk-blue);
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .nav-link:hover {
+            color: #d0e2ff !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--milk-sky) 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+
+        /* Custom Buttons */
+        .btn-milk {
+            background-color: var(--milk-blue);
+            color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-milk:hover {
+            background-color: #0b5ed7;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+
+        /* Card Shadow & Radius */
+        .custom-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+        .custom-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Carousel Customization */
+        .carousel-item img {
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Section Headings */
+        .section-title {
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--milk-blue);
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--milk-dark);
+            color: #ffffff;
+        }
+        footer a {
+            color: #d0e2ff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 d-flex align-items-center gap-2" href="#inicio">
+                <i class="bi bi-cup-hot-fill text-warning"></i> Lunes de Lechita
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+                <button class="btn btn-warning ms-lg-3 rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#promoModal">
+                    <i class="bi bi-gift-fill me-1"></i> Oferta Especial
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. PORTADA / HERO -->
+    <section id="inicio" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <span class="badge bg-primary mb-2 px-3 py-2 rounded-pill fs-6 text-uppercase">¡Empieza la semana con energía!</span>
+                    <h1 class="display-4 fw-bold text-dark text-uppercase lh-1 mb-3">
+                        Lunes de <span class="text-primary">Lechita Fresca</span>
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Disfruta cada lunes de promociones exclusivas en leches premium, yogures, quesos y bebidas nutritivas para toda la familia.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#productos" class="btn btn-milk fs-5">
+                            <i class="bi bi-cart-fill me-2"></i> Ver Ofertas
+                        </a>
+                        <button class="btn btn-outline-primary rounded-pill px-4 fw-bold" data-bs-toggle="modal" data-bs-target="#promoModal">
+                            Obtener Cupón
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80" alt="Leche fresca y saludable" class="img-fluid rounded-4 shadow-lg border border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CARRUSEL -->
+    <section id="productos" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title text-uppercase">Nuestra Variedad de Lechitas</h2>
+                <p class="text-muted">Desliza para explorar la gama de productos lácteos frescos con promociones únicas</p>
+            </div>
+
+            <div id="carouselLeche" class="carousel slide shadow-lg rounded-4 overflow-hidden mt-4" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselLeche" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselLeche" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselLeche" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="4000">
+                        <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Leche Entera y Descremada">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-3">
+                            <h3 class="fw-bold text-warning">Leche Fresca & Cremosa</h3>
+                            <p>Directo del campo a tu mesa, pasteurizada con los más altos estándares de calidad.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="https://images.unsplash.com/photo-1528751014936-863e6e7a319c?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Yogurt y Batidos">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-3">
+                            <h3 class="fw-bold text-warning">Yogures & Batidos Frutados</h3>
+                            <p>Llenos de probióticos y vitaminas para iniciar tu semana con máxima vitalidad.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="https://images.unsplash.com/photo-1559598467-f8b76c8155d0?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Opciones Vegetales">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-3">
+                            <h3 class="fw-bold text-warning">Bebidas Vegetales (Almendra y Avena)</h3>
+                            <p>Opciones ligeras, sin lactosa y 100% saludables para tu dieta diaria.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselLeche" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselLeche" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-uppercase">Preguntas Frecuentes</h2>
+                <p class="text-muted">Resuelve tus dudas sobre las entregas y promociones de Lunes de Lechita</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion custom-card p-3" id="accordionFAQ">
+                        <!-- Pregunta 1 -->
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="bi bi-calendar-check me-2 text-primary"></i> ¿En qué consiste la promoción Lunes de Lechita?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Todos los lunes ofrecemos hasta un 30% de descuento en presentaciones seleccionadas de leche pasteurizada, yogures y derivados lácteos tanto en tienda como en envíos a domicilio.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 2 -->
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="bi bi-truck me-2 text-primary"></i> ¿Hacen entregas el mismo día?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    ¡Sí! Si realizas tu pedido antes de las 12:00 p.m. de cualquier lunes, te entregamos tus productos lácteos refrigerados el mismo día por la tarde.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 3 -->
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="bi bi-shield-check me-2 text-primary"></i> ¿Cuentan con productos sin lactosa o veganos?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Por supuesto. Contamos con leche deslactosada y una variedad amplia de bebidas de almendras, soya, coco y avena en promoción.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 4 -->
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <i class="bi bi-wallet2 me-2 text-primary"></i> ¿Qué métodos de pago puedo utilizar?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Aceptamos pago con tarjeta de crédito o débito, transferencias bancarias, efectivo contra entrega y billeteras digitales como Yape y Plin.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CONTACTO -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card custom-card p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h2 class="section-title text-uppercase">Contáctanos o Pide Tu Pedido</h2>
+                            <p class="text-muted">Déjanos tus datos para coordinar tus compras o resolver tus consultas</p>
+                        </div>
+                        
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label fw-semibold">Nombre Completo</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                        <input type="text" class="form-control" id="nombre" placeholder="Ej. Ana García" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="correo" class="form-label fw-semibold">Correo Electrónico</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="mensaje" class="form-label fw-semibold">Mensaje o Consulta</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
+                                        <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe aquí tu consulta o pedido de Lunes de Lechita..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-milk w-100 fs-5">
+                                        <i class="bi bi-send-fill me-2"></i> Enviar Mensaje
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. MODAL -->
+    <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="promoModalLabel">
+                        <i class="bi bi-stars me-2"></i> ¡Descuento de Inicio de Semana!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=500&q=80" alt="Promoción Lechita" class="img-fluid rounded-3 mb-3">
+                    <h4 class="fw-bold text-dark">¡2x1 en Packs Seleccionados!</h4>
+                    <p class="text-muted">Usa este cupón en tu compra web o preséntalo en tienda para llevar un pack extra de lechita saborizada.</p>
+                    <div class="bg-light border border-dashed border-primary p-3 rounded-3 mb-3">
+                        <span class="fs-4 fw-bold text-primary tracking-wider">LUNESLECHITA2026</span>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light justify-content-center">
+                    <button type="button" class="btn btn-milk px-4" data-bs-dismiss="modal">¡Obtener Oferta!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. FOOTER -->
+    <footer class="pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <!-- Columna 1: Información breve -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold text-warning mb-3">
+                        <i class="bi bi-cup-hot-fill"></i> Lunes de Lechita
+                    </h5>
+                    <p class="small text-light opacity-75">
+                        Promovemos el hábito de consumir lácteos frescos y nutritivos para iniciar tus semanas con la máxima vitalidad y nutrición.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Ubicación -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold text-white mb-3">Ubicación & Contacto</h5>
+                    <p class="small text-light opacity-75 mb-1">
+                        <i class="bi bi-geo-alt-fill text-warning me-2"></i> Av. Los Lácteos 456, San Miguel, Lima, Perú
+                    </p>
+                    <p class="small text-light opacity-75 mb-1">
+                        <i class="bi bi-telephone-fill text-warning me-2"></i> (01) 619-0000
+                    </p>
+                    <p class="small text-light opacity-75">
+                        <i class="bi bi-clock-fill text-warning me-2"></i> Lun - Sáb: 7:00 AM - 8:00 PM
+                    </p>
+                </div>
+
+                <!-- Columna 3: Enlaces Internos -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold text-white mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#inicio"><i class="bi bi-chevron-right text-warning me-1"></i> Inicio</a></li>
+                        <li class="mb-2"><a href="#productos"><i class="bi bi-chevron-right text-warning me-1"></i> Productos</a></li>
+                        <li class="mb-2"><a href="#faq"><i class="bi bi-chevron-right text-warning me-1"></i> Preguntas FAQ</a></li>
+                        <li class="mb-2"><a href="#contacto"><i class="bi bi-chevron-right text-warning me-1"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Redes Sociales -->
+                <div class="col-lg-3 col-md-6 text-md-start">
+                    <h5 class="fw-bold text-white mb-3">Síguenos</h5>
+                    <p class="small text-light opacity-75">Sigue nuestras ofertas y contenido nutritivo:</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle p-2"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle p-2"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle p-2"><i class="bi bi-tiktok fs-5"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle p-2"><i class="bi bi-whatsapp fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="row align-items-center small text-light opacity-75">
+                <div class="col-md-6 text-center text-md-start">
+                    &copy; 2026 Lunes de Lechita. Todos los derechos reservados.
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                    <a href="#" class="me-3">Política de Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
